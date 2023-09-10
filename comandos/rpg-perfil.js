@@ -25,24 +25,24 @@ let handler = async (m, { conn, command }) => {
     let sn = createHash("md5").update(who).digest("hex");
     let info = `*tus datos están guardados en nuestra base de datos.*\n\n${wm3}`;
     let str = `╔═════「 *${command}* 」═════╗
-║ *🔥 NOMBRE:* ${username} ${registered ? "(" + name + ") " : ""}
-║ *#️⃣ NUMERO:* ${PhoneNumber(
+║ *🔥 الاسم:* ${username} ${registered ? "(" + name + ") " : ""}
+║ *#️⃣ الرقم:* ${PhoneNumber(
       "+" + who.replace("@s.whatsapp.net", ""),
     ).getNumber("international")}
-║ *🔗 LINK:* wa.me/${who.split`@`[0]}${
+║ *🔗 رابط الرقم:* wa.me/${who.split`@`[0]}${
       registered ? "\n*𝙴𝙳𝙰𝙳:* " + age + " años" : ""
     }
-║ *💌 NIVEL:* ${level}
-║ *⚡ RANGO:* ${role}
-║ *💸 DOLARES*: ${`${dolares.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
-║ *🎉 EXPERIENCIA/XP:* ${`${xp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
-║ *💎 DIAMANTES:* ${`${limit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
-║ *📦 REGISTRADO:* ${registered ? "Si" : "No"}
-║ *💳 PREMIUM:* ${prem ? "Si" : "No"}
+║ *💌 الفل:* ${level}
+║ *⚡ الرانك:* ${role}
+║ *💸 المال*: ${`${dolares.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+║ *🎉 نقاط الخبره:* ${`${xp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+║ *💎 الاماس:* ${`${limit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+║ *📦 مسجل:* ${registered ? "نعم" : "لا"}
+║ *💳 العضوية ااذهبيه:* ${prem ? "نعم" : "لا"}
 ╚════ ≪ •❈• ≫ ════╝`;
     conn.sendMessage(
       who,
-      { text: `*❕ NUMERO DE SERIE: ${sn}*` },
+      { text: `*❕ رقم سري: ${sn}*` },
       { quoted: m },
     );
 
@@ -73,5 +73,5 @@ let handler = async (m, { conn, command }) => {
 };
 handler.help = ["profile [@user]"];
 handler.tags = ["xp"];
-handler.command = /^perfil|profile?$/i;
+handler.command = /^بروفايلي|بروفايل?$/i;
 export default handler;
