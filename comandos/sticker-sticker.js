@@ -12,7 +12,7 @@ import {sticker} from '../lib/sticker.js';
      const mime = (q.msg || q).mimetype || q.mediaType || ''; 
      if (/webp|image|video/g.test(mime)) { 
        const img = await q.download?.(); 
-       if (!img) throw `*[❌] Responda a una imagen o video*`; 
+       if (!img) throw `*[❌] أجب على صورة أو فيديو*`; 
        let out; 
        try { 
          stiker = await sticker(img, false, global.packname, global.author); 
@@ -29,19 +29,19 @@ import {sticker} from '../lib/sticker.js';
        } 
      } else if (args[0]) { 
        if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author); 
-       else return m.reply('*[⚠️] El enlace no es válido, debe terminar en .jpg*'); 
+       else return m.reply('*[⚠️] هذا الصورة أو الفيديو غير صالحين لي انشاء بهم ملصق.*'); 
      } 
    } catch (e) { 
      console.error(e); 
      if (!stiker) stiker = e; 
    } finally { 
      if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m); 
-     else throw '*[❌] Responda a una imagen o video*'; 
+     else throw '*[❌] أجب على صورة أو فيديو*'; 
    } 
  }; 
  handler.help = ['sfull']; 
  handler.tags = ['sticker']; 
- handler.command = /^s(tic?ker)?(gif)?(wm)?$/i; 
+ handler.command = /^ملصق(tic?ker)?(gif)?(wm)?$/i; 
   
  export default handler; 
   
