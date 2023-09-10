@@ -6,13 +6,13 @@ import ytdl from 'ytdl-core';
      return `${Math.floor(Math.random() * 10000)}${ext}`; 
    }; 
    if (args.length === 0) { 
-     m.reply(`*[❌] INSERTÉ UN COMANDO DE YOUTUBE*`); 
+     m.reply(`*[❌] لقد أدخلت أمر يوتيوب*`); 
      return; 
    } 
    try { 
      const urlYt = args[0]; 
      if (!urlYt.startsWith('http')) { 
-       m.reply(`*[⚠️] INGRESA UN ENLACE CORRECTO*`); 
+       m.reply(`*[⚠️] أدخل رابطًا صحيحًا*`); 
        return; 
      } 
      const infoYt = await ytdl.getInfo(urlYt); 
@@ -36,7 +36,7 @@ import ytdl from 'ytdl-core';
          conn.sendMessage( m.chat, {document: fs.readFileSync(`./tmp/${randomName}`), fileName: `${titleYt}.mp4`, mimetype: 'video/mp4'}, {quoted: m}); 
        } 
      } else { 
-       m.reply(`*[🌐] EL ARCHIVO SUPERA LOS 999 MB*`); 
+       m.reply(`*[🌐] يتجاوز الملف 999 ميغابايت*`); 
      } 
      fs.unlinkSync(`./tmp/${randomName}`); 
    } catch (e) { 
@@ -45,6 +45,6 @@ import ytdl from 'ytdl-core';
  }; 
  handler.help = ['ytd']; 
  handler.tags = ['downloader']; 
- handler.command = ['videodoc', 'documentvid', 'videodocumento', 'ytshort']; 
+ handler.command = ['تحميل', 'تنزيل', 'فيديو', 'يوتيوب']; 
  handler.dolares = 3; 
  export default handler;
