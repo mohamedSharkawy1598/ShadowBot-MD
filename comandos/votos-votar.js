@@ -4,12 +4,12 @@ let handler = async (m, {conn, groupMetadata, usedPrefix, command}) => {
   if (!(id in conn.vote))
     await conn.sendButton(
       m.chat,
-      `⚠️ *_𝙽𝚘 𝚊𝚑𝚒́ 𝚟𝚘𝚝𝚊𝚌𝚒𝚘𝚗𝚎𝚜 𝚎𝚗 𝚎𝚜𝚝𝚎 𝚐𝚛𝚞𝚙𝚘 !_*`,
+      `⚠️ *_لا تصويت في هذه المجموعة !_*`,
       wm,
       null,
       [
-        ["𝚅𝙾𝚃𝙰𝚁📦", `${usedPrefix}votar`],
-        ["𝙼𝙴𝙽𝚄́🛡️", `${usedPrefix}menu`],
+        ["تصويت📦", `${usedPrefix}votar`],
+        ["الاوامر🛡️", `${usedPrefix}menu`],
       ],
       m
     );
@@ -17,7 +17,7 @@ let handler = async (m, {conn, groupMetadata, usedPrefix, command}) => {
   const wasVote = isVote.includes(m.sender);
   if (wasVote) {
     await conn.sendMessage(m.chat, {react: {text: "❌", key: m.key}});
-    conn.reply(m.chat, `🚫 *𝐘𝐚 𝐡𝐚𝐬 𝐯𝐨𝐭𝐚𝐝𝐨 !*`, m);
+    conn.reply(m.chat, `🚫 *لقد صوت بالفعل !*`, m);
     throw false;
   }
   if (/up/i.test(command)) {
@@ -29,15 +29,15 @@ let handler = async (m, {conn, groupMetadata, usedPrefix, command}) => {
     let [reason, upvote, devote] = conn.vote[id];
 
     let caption = `
-\t\t\t\t*✲◜🗳️ VOTACIONES 🗳️◞✲*
+\t\t\t\t*✲◜🗳️ لقد صوت بالفعل 🗳️◞✲*
 
 「 📣 」𝐑𝐚𝐳𝐨́𝐧:* ${reason}
 
-\t\t\t*「 ✅ 」𝐕𝐎𝐓𝐎𝐒 𝐀 𝐅𝐀𝐕𝐎𝐑「 ✅ 」*
+\t\t\t*「 ✅ 」من فضلك أصوات「 ✅ 」*
 *Total: ${upvote.length}*
 ${upvote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join("\n")}
 
-\t\t*「 ❌ 」𝐕𝐎𝐓𝐎𝐒 𝐄𝐍 𝐂𝐎𝐍𝐓𝐑𝐀「 ❌ 」*
+\t\t*「 ❌ 」أصوات في ضد「 ❌ 」*
 *Total:* ${devote.length}
 ${devote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join("\n")}
 `;
@@ -54,7 +54,7 @@ ${devote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join("\n")}
       {mentions: conn.parseMention(caption)}
     );
   } catch {
-    m.reply("⚠️ *_𝐍𝐨 𝐚𝐡𝐢́ 𝐯𝐨𝐭𝐚𝐜𝐢𝐨𝐧𝐞𝐬 𝐚𝐜𝐭𝐢𝐯𝐚𝐬 𝐞𝐧 𝐞𝐬𝐭𝐞 𝐠𝐫𝐮𝐩𝐨 ._*");
+    m.reply("⚠️ *_لا توجد أصوات نشطة في هذا ._*");
   }
 };
 handler.help = ["upvote", "devote"];
