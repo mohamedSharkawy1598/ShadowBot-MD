@@ -1,14 +1,14 @@
 import {addExif} from "../lib/sticker.js";
 var handler = async (m, {conn, text}) => {
-  if (!m.quoted) throw "*[❌] Responda al sticker con el nombre que le quiera poner*";
+  if (!m.quoted) throw "*[❌] أجب على الملصق بالاسم الذي تحبه*";
   let stiker = false;
   try {
     let [packname, ...author] = text.split("|");
     author = (author || []).join("|");
     let mime = m.quoted.mimetype || "";
-    if (!/webp/.test(mime)) throw "*[❌] Responda al sticker con el nombre que le quiera poner*";
+    if (!/webp/.test(mime)) throw "*[❌] أجب على الملصق بالاسم الذي تحبه*";
     let img = await m.quoted.download();
-    if (!img) throw "*[❌] Responda al sticker con el nombre que le quiera poner*";
+    if (!img) throw "*[❌] أجب على الملصق بالاسم الذي تحبه*";
     stiker = await addExif(img, packname || "", author || "");
   } catch (e) {
     console.error(e);
@@ -16,10 +16,10 @@ var handler = async (m, {conn, text}) => {
   } finally {
     if (stiker) conn.sendFile(m.chat, stiker, "wm.webp", "", m, false, {asSticker: true});
     else
-      throw "*[⚠️] OCURRIO UN ERROR.*";
+      throw "*[⚠️] لقد حدث خطأ ما قم بتكرار العماليه.*";
   }
 };
 handler.help = ["wm <packname>|<author>"];
 handler.tags = ["sticker"];
-handler.command = /^wm$/i;
+handler.command = /^سرقه$/i;
 export default handler;
