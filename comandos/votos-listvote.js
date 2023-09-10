@@ -19,10 +19,10 @@ let handler = async (m, {conn, groupMetadata, usedPrefix, command}) => {
   let caption = `
 \t\t\t\t*✲◜🗳️ VOTACIONES 🗳️◞✲*
 「 📣 」Razón:* ${reason}
-\t\t\t*「 ✅ 」𝐕𝐎𝐓𝐎𝐒 𝐀 𝐅𝐀𝐕𝐎𝐑「 ✅ 」*
+\t\t\t*「 ✅ 」من فضلك أصوات「 ✅ 」*
 *Total: ${upvote.length}*
 ${upvote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join("\n")}
-\t\t*「 ❌ 」𝐕𝐎𝐓𝐎𝐒 𝐄𝐍 𝐂𝐎𝐍𝐓𝐑𝐀「 ❌ 」*
+\t\t*「 ❌ 」أصوات في كونتي「 ❌ 」*
 *Total:* ${devote.length}
 ${devote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join("\n")}
 `;
