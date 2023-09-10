@@ -17,9 +17,9 @@ handler.all = async function (m, {}) {
       {
         contextInfo: {
           externalAdReply: {
-            title: "𝐙𝐈𝐑𝐀𝐗-𝐁𝐎𝐓-𝐌𝐃",
-            body: "𝑫𝑰𝑬𝑮𝑶-𝑶𝑭𝑪",
-            sourceUrl: `https://github.com/DIEGO-OFC/Zirax-Bot-MD`,
+            title: "𝐀𝐋-𝐒𝐇𝐀𝐑𝐐𝐀𝐖𝐈-𝐁𝐎𝐓",
+            body: "𝐀𝐋-𝐒𝐇𝐀𝐑𝐐𝐀𝐖𝐈-𝑶𝑭𝑪",
+            sourceUrl: ``,
             thumbnail: imagen1,
           },
         },
